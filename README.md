@@ -43,11 +43,11 @@ ptgaze --mode eth-xgaze
 
 ### Resolve the errors
 
-##### Download pretrained models
-1. Models can be downloaded from this page https://github.com/hysts/pytorch_mpiigaze/issues/56.   (see `utils.py`'s downloading functions)
+##### 1. Download pretrained models
+    Models can be downloaded from this page https://github.com/hysts/pytorch_mpiigaze/issues/56.   (see `utils.py`'s downloading functions)
 
-##### NumPy error 
-2. Due to NumPy's upgrade, need to modify codes about int64 & float64 in `path-to-your-environment/lib/python3.8/site-packages/ptgaze/..` if it runs into a problem :
+##### 2. NumPy error 
+    Due to NumPy's upgrade, need to modify codes about int64 & float64 in `path-to-your-environment/lib/python3.8/site-packages/ptgaze/..` if it runs into a problem :
    
     ```text
     AttributeError: module 'numpy' has no attribute 'float'.
@@ -63,8 +63,8 @@ ptgaze --mode eth-xgaze
     ```
     Modify all the error codes until it stops raising errors.
 
-##### torchvision: No url attribute error 
-3.
+##### 3.torchvision: No url attribute error 
+
    ```text
    error:"AttributeError: module 'torchvision.models.resnet' has no attribute 'model_urls'"
    ```
