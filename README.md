@@ -39,7 +39,7 @@ pip install ptgaze
 1. Models can be downloaded from this page https://github.com/hysts/pytorch_mpiigaze/issues/56.   (see utils.py's downloading functions)
 
 ##### NumPy error 
-2. Due to NumPy's upgrade, need to modify codes about int64 & float64 in path-to-your-environment/lib/python3.8/site-packages/ptgaze/ if it runs into error.
+2. Due to NumPy's upgrade, need to modify codes about int64 & float64 in `path-to-your-environment/lib/python3.8/site-packages/ptgaze/..` if it runs into error.
     ```python
     AttributeError: module 'numpy' has no attribute 'float'.
     np.float was a deprecated alias for the builtin float. 
@@ -55,9 +55,9 @@ pip install ptgaze
     Modify all the error codes until it stops raising errors.
 
 ##### torchvision: No url attribute error 
-3. "AttributeError: module 'torchvision.models.resnet' has no attribute 'model_urls'"
-   Modify ptgaze/models/mpiifacegaze/backbones/resnet_simple.py
-    from
+3. error:"AttributeError: module 'torchvision.models.resnet' has no attribute 'model_urls'"
+   Modify `ptgaze/models/mpiifacegaze/backbones/resnet_simple.py`
+   from
     ```python
     if pretrained_name:
         state_dict = torch.hub.load_state_dict_from_url(
