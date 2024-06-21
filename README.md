@@ -33,6 +33,7 @@ This program is tested only on Ubuntu.
 pip install ptgaze
 ```
 PS: This command means that you download the configs files in `path-to-your-environment/lib/python3.8/site-packages/ptgaze/..`
+    Modify them in the correct path, not the ones in this repository.
     
 ### Run demo
 
