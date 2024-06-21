@@ -46,7 +46,7 @@ pip install ptgaze
     np.float was a deprecated alias for the builtin float. 
     To avoid this error in existing code, use float by itself. 
     Doing this will not modify any behavior and is safe. If you specifically wanted the numpy scalar type, use np.float64 here.
-
+    ```
     Modify:
     ```python
     eg:
