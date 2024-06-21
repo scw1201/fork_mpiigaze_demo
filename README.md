@@ -44,47 +44,47 @@ ptgaze --mode eth-xgaze
 ### Resolve the errors
 
 ##### 1. Download pretrained models
-    Models can be downloaded from this page https://github.com/hysts/pytorch_mpiigaze/issues/56.   (see `utils.py`'s downloading functions)
+Models can be downloaded from this page https://github.com/hysts/pytorch_mpiigaze/issues/56.   (see `utils.py`'s downloading functions)
 
 ##### 2. NumPy error 
-    Due to NumPy's upgrade, need to modify codes about int64 & float64 in `path-to-your-environment/lib/python3.8/site-packages/ptgaze/..` if it runs into a problem :
+Due to NumPy's upgrade, need to modify codes about int64 & float64 in `path-to-your-environment/lib/python3.8/site-packages/ptgaze/..` if it runs into a problem :
    
-    ```text
-    AttributeError: module 'numpy' has no attribute 'float'.
-    np.float was a deprecated alias for the builtin float. 
-    To avoid this error in existing code, use float by itself. 
-    Doing this will not modify any behavior and is safe. If you specifically wanted the numpy scalar type, use np.float64 here.
-    ```
-    Modify:
-    ```python
-    eg:
-    dtype=np.float ==> dtype=np.float64
-    np.int ==> np.int64
-    ```
-    Modify all the error codes until it stops raising errors.
+```text
+AttributeError: module 'numpy' has no attribute 'float'.
+np.float was a deprecated alias for the builtin float. 
+To avoid this error in existing code, use float by itself. 
+Doing this will not modify any behavior and is safe. If you specifically wanted the numpy scalar type, use np.float64 here.
+```
+Modify:
+```python
+eg:
+dtype=np.float ==> dtype=np.float64
+np.int ==> np.int64
+```
+Modify all the error codes until it stops raising errors.
 
 ##### 3.torchvision: No url attribute error 
 
-   ```text
-   error:"AttributeError: module 'torchvision.models.resnet' has no attribute 'model_urls'"
-   ```
-   Modify `ptgaze/models/mpiifacegaze/backbones/resnet_simple.py`
+```text
+error:"AttributeError: module 'torchvision.models.resnet' has no attribute 'model_urls'"
+```
+Modify `ptgaze/models/mpiifacegaze/backbones/resnet_simple.py`
 
-   from
-    ```python
-    if pretrained_name:
-        state_dict = torch.hub.load_state_dict_from_url(
-            torchvision.models.resnet.model_urls[pretrained_name])
-        self.load_state_dict(state_dict, strict=False)
-    ```
-    to
-    ```python
-    import torchvision.models as models
-    if pretrained_name:
-        model_func = getattr(models, pretrained_name)
-        pretrained_model = model_func(pretrained=True)
-        self.load_state_dict(pretrained_model.state_dict(), strict=False)
-    ```
+from
+```python
+if pretrained_name:
+    state_dict = torch.hub.load_state_dict_from_url(
+        torchvision.models.resnet.model_urls[pretrained_name])
+    self.load_state_dict(state_dict, strict=False)
+```
+to
+```python
+import torchvision.models as models
+if pretrained_name:
+    model_func = getattr(models, pretrained_name)
+    pretrained_model = model_func(pretrained=True)
+    self.load_state_dict(pretrained_model.state_dict(), strict=False)
+```
 
 ### Usage
 
