@@ -1,5 +1,4 @@
 mode: MPIIGaze
-#device: cpu
 device: cuda
 model:
   name: resnet_preact
@@ -15,19 +14,17 @@ gaze_estimator:
   normalized_camera_params: ${PACKAGE_ROOT}/data/normalized_camera_params/mpiigaze.yaml
   normalized_camera_distance: 0.6
 demo:
-#  use_camera: true
   use_camera: false
-
   display_on_screen: true
   wait_time: 1
   image_path: null
-  video_path: null
-  output_dir: null
-  output_file_extension: avi
+  video_path: assets/inputs/id04479_00014.mp4
+  output_dir: assets/results
+  output_file_extension: mp4
   head_pose_axis_length: 0.05
   gaze_visualization_length: 0.05
   show_bbox: true
-  show_head_pose: false
+  show_head_pose: true
   show_landmarks: false
   show_normalized_image: false
   show_template_model: false
