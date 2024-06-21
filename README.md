@@ -33,6 +33,14 @@ This program is tested only on Ubuntu.
 pip install ptgaze
 ```
 
+    
+### Run demo
+
+```bash
+ptgaze --mode eth-xgaze
+```
+
+
 ### Resolve the errors
 
 ##### Download pretrained models
@@ -77,13 +85,6 @@ pip install ptgaze
         pretrained_model = model_func(pretrained=True)
         self.load_state_dict(pretrained_model.state_dict(), strict=False)
     ```
-
-### Run demo
-
-```bash
-ptgaze --mode eth-xgaze
-```
-
 
 ### Usage
 
