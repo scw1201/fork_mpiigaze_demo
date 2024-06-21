@@ -56,7 +56,10 @@ pip install ptgaze
     Modify all the error codes until it stops raising errors.
 
 ##### torchvision: No url attribute error 
-3. error:"AttributeError: module 'torchvision.models.resnet' has no attribute 'model_urls'"
+3.
+   ```text
+   error:"AttributeError: module 'torchvision.models.resnet' has no attribute 'model_urls'"
+   ```
    Modify `ptgaze/models/mpiifacegaze/backbones/resnet_simple.py`
 
    from
