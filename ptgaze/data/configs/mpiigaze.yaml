@@ -1,5 +1,6 @@
 mode: MPIIGaze
-device: cpu
+#device: cpu
+device: cuda
 model:
   name: resnet_preact
 face_detector:
@@ -14,7 +15,9 @@ gaze_estimator:
   normalized_camera_params: ${PACKAGE_ROOT}/data/normalized_camera_params/mpiigaze.yaml
   normalized_camera_distance: 0.6
 demo:
-  use_camera: true
+#  use_camera: true
+  use_camera: false
+
   display_on_screen: true
   wait_time: 1
   image_path: null

@@ -1,6 +1,7 @@
 import torch
 import torchvision
 from omegaconf import DictConfig
+import torchvision.models as models
 
 
 class Model(torchvision.models.ResNet):
@@ -19,10 +20,16 @@ class Model(torchvision.models.ResNet):
         del self.fc
 
         pretrained_name = config.model.backbone.pretrained
+        # if pretrained_name:
+        #     state_dict = torch.hub.load_state_dict_from_url(
+        #         torchvision.models.resnet.model_urls[pretrained_name])
+        #     self.load_state_dict(state_dict, strict=False)
         if pretrained_name:
-            state_dict = torch.hub.load_state_dict_from_url(
-                torchvision.models.resnet.model_urls[pretrained_name])
-            self.load_state_dict(state_dict, strict=False)
+            # 动态地从 torchvision.models 获取指定的预训练模型
+            model_func = getattr(models, pretrained_name)
+            pretrained_model = model_func(pretrained=True)
+            self.load_state_dict(pretrained_model.state_dict(), strict=False)
+
             # While the pretrained models of torchvision are trained
             # using images with RGB channel order, in this repository
             # images are treated as BGR channel order.

@@ -1,5 +1,6 @@
 mode: MPIIFaceGaze
-device: cpu
+#device: cpu
+device: cuda
 model:
   name: resnet_simple
   backbone:
@@ -20,7 +21,8 @@ gaze_estimator:
   normalized_camera_distance: 1.0
   image_size: [224, 224]
 demo:
-  use_camera: true
+#  use_camera: true
+  use_camera: false
   display_on_screen: true
   wait_time: 1
   image_path: null
@@ -30,7 +32,7 @@ demo:
   head_pose_axis_length: 0.05
   gaze_visualization_length: 0.05
   show_bbox: true
-  show_head_pose: false
-  show_landmarks: false
+  show_head_pose: true
+  show_landmarks: true
   show_normalized_image: false
   show_template_model: false
