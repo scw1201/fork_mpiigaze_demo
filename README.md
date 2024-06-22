@@ -41,6 +41,12 @@ PS: This command means that you download the configs files in `path-to-your-envi
 ptgaze --mode eth-xgaze
 ```
 
+### Batch process
+
+```bash
+python batch_ptgaze.py --mode mpiigaze --folder assets/inputs
+```
+Added  batch_ptgaze.py & batch_main.py to develop the function of batch process
 
 ### Resolve the errors
 
