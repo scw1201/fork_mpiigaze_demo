@@ -36,7 +36,7 @@ class FaceModel:
                                      tvec,
                                      useExtrinsicGuess=True,
                                      flags=cv2.SOLVEPNP_ITERATIVE)
-        rot = Rotation.from_rotvec(rvec)
+        rot = Rotation.from_rotvec(rvec) # 相机坐标系下头部旋转矩阵
         face.head_pose_rot = rot
         face.head_position = tvec
         face.reye.head_pose_rot = rot

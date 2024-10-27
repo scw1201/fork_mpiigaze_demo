@@ -11,6 +11,9 @@ from ptgaze.utils import (check_path_all, download_dlib_pretrained_model,
                     download_ethxgaze_model, download_mpiifacegaze_model,
                     download_mpiigaze_model, expanduser_all,
                     generate_dummy_camera_params)
+import json
+from typing import List, Tuple
+
 
 logger = logging.getLogger(__name__)
 

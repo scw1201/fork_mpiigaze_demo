@@ -1,5 +1,6 @@
 from typing import Optional, Tuple
-
+import numpy as np
+from scipy.spatial.transform import Rotation as R
 import cv2
 import numpy as np
 from scipy.spatial.transform import Rotation
@@ -58,6 +59,9 @@ class Visualizer:
                      lw=1) -> None:
         assert self.image is not None
         assert point0.shape == point1.shape == (3, )
+        # print('point0',point0)
+        # print('point1',point1)
+
         points3d = np.vstack([point0, point1])
         points2d = self._camera.project_points(points3d)
         pt0 = self._convert_pt(points2d[0])
@@ -72,7 +76,7 @@ class Visualizer:
         assert face.landmarks is not None
         # Get the axes of the model coordinate system
         axes3d = np.eye(3, dtype=np.float64) @ Rotation.from_euler(
-            'XYZ', [0, np.pi, 0]).as_matrix()
+            'XYZ', [0, np.pi, 0]).as_matrix() # 模型坐标系模型构建
         axes3d = axes3d * length
         axes2d = self._camera.project_points(axes3d,
                                              face.head_pose_rot.as_rotvec(),
