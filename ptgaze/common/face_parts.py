@@ -49,6 +49,6 @@ class FaceParts:
         assert vector.shape == (3, )
         x, y, z = vector
         pitch = np.arcsin(-y)
-        # pitch = np.arctan2(y, np.sqrt(x ** 2 + z ** 2))  # 计算俯仰角
         yaw = np.arctan2(-x , -z)
+        # yaw = np.arctan(-x / -z)
         return np.array([pitch, yaw])

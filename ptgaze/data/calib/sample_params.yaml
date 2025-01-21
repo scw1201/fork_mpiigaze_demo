@@ -1,20 +1,24 @@
 #image_width: 640
 #image_height: 480
-image_width: 256
-image_height: 256
-camera_matrix:
-    rows: 3
-    cols: 3
 #    data: [640., 0., 320.,
 #           0., 640., 240.,
 #           0., 0., 1.]
-#    data: [224., 0., 112.,
-#           0., 224., 112.,
-#           0., 0., 1.]
-    data : [256., 0., 128.,
-            0., 256., 128.,
-            0., 0., 1.]
+
+# 图像分辨率
+image_width: 640
+image_height: 640
+
+# 相机内参矩阵
+camera_matrix:
+    rows: 3
+    cols: 3
+    data: [640., 0., 320.,
+           0., 640., 320.,
+           0., 0., 1.]
+
+# 畸变系数
 distortion_coefficients:
     rows: 1
     cols: 5
     data: [0., 0., 0., 0., 0.]
+

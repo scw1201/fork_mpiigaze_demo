@@ -102,7 +102,6 @@ def generate_dummy_camera_params(config: DictConfig) -> None:
         image = cv2.imread(path.as_posix())
         h, w = image.shape[:2]
     elif config.demo.video_path:
-        print(config.demo.video_path)
         logger.debug(f'Open video {config.demo.video_path}')
         path = pathlib.Path(config.demo.video_path).expanduser().as_posix()
         cap = cv2.VideoCapture(path)
